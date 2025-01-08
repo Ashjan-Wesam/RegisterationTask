@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+</head>
+<body>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loggedInUser = sessionStorage.getItem("loggedInUser");
+    
+            if (!loggedInUser) {
+              
+                window.location.href = "login.html";
+
+            } else
+            {
+
+                const user = JSON.parse(loggedInUser);
+                document.getElementById("welcomeMessage").innerText = `Welcome, ${user.fullName}!`;
+            }
+        });
+    </script>
+    
+    
+    <h1 id="welcomeMessage"></h1>
+    
+</body>
+</html>
